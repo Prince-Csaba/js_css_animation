@@ -1,5 +1,4 @@
 function load() {
-  console.log("Futok!");
   let root = document.getElementById("root");
   let myObjects = [
     {
