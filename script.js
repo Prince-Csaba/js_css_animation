@@ -1,23 +1,28 @@
 function load() {
   console.log("Futok!");
   let root = document.getElementById("root");
-  let myObjects = [{
-    tag: "h1",
-    content: "Csaba",
-    tag2: "</h1>"
-}, {
-    tag: "p",
-    content: "Lorem Ipsum Dolores"
-}];
+  let myObjects = [
+    {
+      tag: "h1",
+      content: "Csaba"
+    }, 
+    {
+      tag: "p",
+      content: "Frontend Developer"
+    }
+  ];
 
   // for (let i = 0; i < myObjects.length; i++) {  }
 
-  for (myObject of myObjects) {
-    console.log(myObject.tag);
+  for (o of myObjects) {
+    root.insertAdjacentHTML("beforeend", `<${o.tag}>${o.content}</${o.tag}>`);
   }
+  console.log(root.querySelector("p"));
 
-  root.insertAdjacentHTML("beforeend", `<${myObjects[0].tag}>${myObjects[0].content}`);
-  root.insertAdjacentHTML("afterbegin", `<${myObjects[1].tag}>${myObjects[1].content}`);
+   root.addEventListener("click", function () { 
+    root.querySelector("p").classList.toggle("click");
+    root.querySelector("h1").classList.toggle("click");
+  });
+
 }
-
 window.addEventListener("load", load);
